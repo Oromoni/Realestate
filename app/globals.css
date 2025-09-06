@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.react-fast-marquee {
+  height: auto !important;
+  overflow: hidden !important;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.react-fast-marquee::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
