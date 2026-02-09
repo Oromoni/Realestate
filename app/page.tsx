@@ -366,7 +366,7 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden">
           <div className="w-full overflow-hidden" style={{ height: "80px" }}>
             <Marquee gradient={false} speed={50} pauseOnHover style={{ overflow: "hidden", height: "80px" }} className="no-scrollbar">
-              <h1 className="text-white text-4xl md:text-6xl font-bold whitespace-nowrap">Your Overlay Text is that a but you get me nowx</h1>
+              <h1 className="text-white text-4xl md:text-6xl font-bold whitespace-nowrap">With an initial payment of $25,000 . interest-free . </h1>
             </Marquee>
           </div>
         </div>
