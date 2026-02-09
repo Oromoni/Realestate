@@ -1,12 +1,17 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2024-06-20",
-});
-
 export async function POST(req: Request) {
   try {
+    const stripeSecret = process.env.STRIPE_SECRET_KEY;
+    if (!stripeSecret) {
+      throw new Error("STRIPE_SECRET_KEY is not set");
+    }
+
+    const stripe = new Stripe(stripeSecret, {
+      apiVersion: "2024-06-20",
+    });
+
     const { title, price } = await req.json();
 
     const session = await stripe.checkout.sessions.create({
@@ -17,7 +22,7 @@ export async function POST(req: Request) {
           price_data: {
             currency: "usd",
             product_data: { name: title },
-            unit_amount: price, // Already converted to cents in frontend
+            unit_amount: price, // cents
           },
           quantity: 1,
         },
